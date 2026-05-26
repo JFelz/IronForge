@@ -3,6 +3,9 @@ services:
     build: ./frontend/ironforge
     ports:
       - "3000:3000"
+    volumes:
+      - ./frontend/ironforge:/src
+      - /src/node_modules
     depends_on:
       - backend
 
