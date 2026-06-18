@@ -42,3 +42,39 @@ function playNextSong(playlist, targetSong) {
   console.log("🎵 Song not found in playlist");
   return "Song not found";
 }
+
+function removeSong(playlist, targetTitle) {
+  // Handle case where first song should be removed
+  if (playlist && playlist.title === targetTitle) {
+    console.log(`🗑️ Removed first song: ${playlist.toString()}`);
+    return playlist.next;
+  }
+  
+  let currentSong = playlist;
+  
+  while (currentSong !== null && currentSong.next !== null) {
+    if (currentSong.next.title === targetTitle) {
+      const removedSong = currentSong.next;
+      currentSong.next = removedSong.next;
+      console.log(`🗑️ Removed song: ${removedSong.toString()}`);
+      return playlist;
+    }
+    currentSong = currentSong.next;
+  }
+  
+  console.log(`🎵 Song "${targetTitle}" not found in playlist`);
+  return playlist;
+}
+
+function countSongs(playlist) {
+  let count = 0;
+  let currentSong = playlist;
+  
+  while (currentSong !== null) {
+    count++;
+    currentSong = currentSong.next;
+  }
+  
+  console.log(`📊 Total songs in playlist: ${count}`);
+  return count;
+}
