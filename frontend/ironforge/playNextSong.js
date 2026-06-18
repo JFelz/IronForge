@@ -78,3 +78,59 @@ function countSongs(playlist) {
   console.log(`📊 Total songs in playlist: ${count}`);
   return count;
 }
+
+class DoublySongNode {
+  constructor(title, artist) {
+    this.title = title;
+    this.artist = artist;
+    this.next = null;
+    this.prev = null;
+  }
+  
+  toString() {
+    return `${this.title} - ${this.artist}`;
+  }
+}
+
+// Create a sample doubly linked playlist
+const song1 = new DoublySongNode("Bohemian Rhapsody", "Queen");
+const song2 = new DoublySongNode("Hotel California", "Eagles");
+const song3 = new DoublySongNode("Stairway to Heaven", "Led Zeppelin");
+const song4 = new DoublySongNode("Sweet Child O' Mine", "Guns N' Roses");
+
+// Connect them bidirectionally
+song1.next = song2;
+song2.prev = song1;
+song2.next = song3;
+song3.prev = song2;
+song3.next = song4;
+song4.prev = song3;
+
+function navigatePlaylist(currentSong, direction, steps = 1) {
+  // Navigate forward or backward in a doubly linked playlist
+  let current = currentSong;
+  
+  if (!current) return null;
+  
+  for (let i = 0; i < steps; i++) {
+    if (direction === "forward") {
+      if (current.next) {
+        current = current.next;
+        console.log(`▶️ Moved forward to: ${current.toString()}`);
+      } else {
+        console.log("🔚 Cannot move forward - end of playlist");
+        break;
+      }
+    } else if (direction === "backward") {
+      if (current.prev) {
+        current = current.prev;
+        console.log(`⏮️ Moved backward to: ${current.toString()}`);
+      } else {
+        console.log("🔚 Cannot move backward - beginning of playlist");
+        break;
+      }
+    }
+  }
+  
+  return current;
+}
