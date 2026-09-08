@@ -1,0 +1,3 @@
+- [SOP drafting initiative context](project_sop_initiative.md) — flat front-desk source doc, template location, drafts produced so far
+- [Sparse-source handling rule](feedback_sparse_source_handling.md) — don't flag thin Procedure as defect if writer's own gaps section already discloses it
+- [Template/source file locations](reference_file_locations.md) — where plain-text conversions of template + source doc live
