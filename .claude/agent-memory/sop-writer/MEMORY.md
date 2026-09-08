@@ -1,0 +1,2 @@
+- [Front Desk SOP series project](project_front_desk_sop_series.md) — converting one legacy Front Desk source doc into per-topic SOP markdown files; content isn't always in one contiguous section
+- [Source/template file reference](reference_source_files.md) — paths to source doc, template, txt conversions, and instructions for the Front Desk SOP drafting pipeline
